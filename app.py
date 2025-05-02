@@ -84,9 +84,15 @@ def app():
     st.sidebar.title("Welcome to USMS Attendance Management System")
     
 
-    current_date = datetime.now().date()
-    st.markdown(f"### 📅 Attendance Date: {current_date.strftime('%d-%m-%Y')}")
-    selected_date = current_date  # Forced current date, no selection allowed
+    # Allow teachers to select any date for attendance
+    #current_date = datetime.now().date()
+   
+
+
+   
+ 
+    #st.markdown(f"### 📅 Attendance Date: {current_date.strftime('%d-%m-%Y')}")
+   # selected_date = current_date  # Forced current date, no selection allowed
     
    # current_date = datetime.now().date()
     batch_section = st.selectbox("Select your Batch and Section:", list(SUBJECTS.keys()))
@@ -104,8 +110,8 @@ def app():
 
     if password == correct_password:
         st.success("✅ Access granted to take attendance.")
-        selected_date = st.date_input("Select Attendance Date", current_date)
-
+        selected_date = st.date_input("Select Attendance Date", min_value=datetime(2025, 1, 1), max_value=datetime.now().date())
+        st.markdown(f"### 📅 Attendance Date: {selected_date.strftime('%d-%m-%Y')}")
         st.markdown("### ✅ Mark Present Students (1-100)")
         selected_rolls = []
 
