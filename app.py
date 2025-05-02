@@ -17,25 +17,14 @@ EXCEL_FILES = {
 
 # Subjects for each batch and section
 SUBJECTS = {
-    "2K21 CS": [
-        "Information_Security", "Internet_of_Things", "Computer_Vision", "Entrepreneurship_and_Leadership_Skills"
-    ],
-    "2K21 IT": [
-        "Information_Security", "Internet_of_Things", "Computer_Vision", "Digital_Image_Processing"
-    ],
-    "2K22 CS": [
-        "Graph_Theory", "Compiler_Construction", "Parallel_and_Distributed_Computing", "Mobile_Application_Development", "Web_Technology"
-    ],
-    "2K22 IT": [
-        "Web_Technology", "Mobile_Application_Development", "Modeling_and_Simulation", "Enterprise_System", "System_and_Network_Administration"
-    ],
-    "2K23 CS": ["Linear_Algebra", "Operating_System", "Software_Engineering", "Artificial_Intelligence","Computer_Organization_and_Assembly_Languages", "Theory_of_Automata" ],
-
-    "2K23 IT": ["Linear_Algebra", "Operating_System", "Software_Engineering", "Artificial_Intelligence","Computer_Organization_and_Assembly_Languages", "Theory_of_Automata"],
-    
-    "2K24 CS": ["DLD", "OOP","Paksitan_Studies","Data_Structures", "Mathmatical_Foundation-II","Islamic_Studies","Revance_of_Sufism_and_Modern_Sciences"],
-    
-    "2K24 IT": ["DLD", "OOP","Paksitan_Studies","Data_Structures", "Mathmatical_Foundation-II","Islamic_Studies","Revance_of_Sufism_and_Modern_Sciences"]
+    "2K21 CS": ["Information_Security", "Internet_of_Things", "Computer_Vision", "Entrepreneurship"],
+    "2K21 IT": ["Information_Security", "Internet_of_Things", "Computer_Vision", "Digital_Image_Processing"],
+    "2K22 CS": ["Graph_Theory", "Compiler_Construction", "Parallel_Distri_Comput", "MAD", "Web_Technology"],
+    "2K22 IT": ["Web_Technology", "MAD", "Modeling_and_Simulation", "Enterprise_System", "SNA"],
+    "2K23 CS": ["Linear_Algebra", "Operating_System", "Software_Engineering", "AI","COAL", "Theory_of_Automata" ],
+    "2K23 IT": ["Linear_Algebra", "Operating_System", "Software_Engineering", "AI","COAL", "Theory_of_Automata"],
+    "2K24 CS": ["DLD", "OOP","Paksitan_Studies","Data_Structures", "Mathmatical_Foundation-II","Islamic_Studies","Relevance_of_Sufism"],
+    "2K24 IT": ["DLD", "OOP","Paksitan_Studies","Data_Structures", "Mathmatical_Foundation-II","Islamic_Studies","Relevance_of_Sufism"]
 }
 
 hod_password = st.secrets["passwords"]["HOD_PASSWORD"]
@@ -97,9 +86,9 @@ def app():
 
     current_date = datetime.now().date()
     st.markdown(f"### 📅 Attendance Date: {current_date.strftime('%d-%m-%Y')}")
-   # selected_date = current_date  # Forced current date, no selection allowed
+    selected_date = current_date  # Forced current date, no selection allowed
     
-    #current_date = datetime.now().date()
+   # current_date = datetime.now().date()
     batch_section = st.selectbox("Select your Batch and Section:", list(SUBJECTS.keys()))
     file_name = EXCEL_FILES[batch_section]
     subject_options = SUBJECTS[batch_section]
